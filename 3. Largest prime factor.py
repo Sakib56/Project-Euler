@@ -7,6 +7,13 @@ from time import time
 from math import sqrt
 
 
+def smallestPrimeFactor(n):
+    for i in [2]+list(range(3, 1+int(sqrt(n)), 2)):
+        if not n % i:
+            return i
+    return n
+
+
 def largestPrimeFactor(n):
     while True:
         p = smallestPrimeFactor(n)
@@ -15,12 +22,6 @@ def largestPrimeFactor(n):
         else:
             n = int(n/p)
 
-
-def smallestPrimeFactor(n):
-    for i in range(2, 1+int(sqrt(n))):
-        if not n % i:
-            return i
-    return n
 
 # Since every number, n has a prime factorization, we can repeatedly divide n by prime
 # factors (from smallest to largest) and thus the last factor will be the largest factor
