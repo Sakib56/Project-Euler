@@ -17,7 +17,7 @@ def largestPrimeFactor(n):
 
 
 def smallestPrimeFactor(n):
-    for i in range(2, 1+int(sqrt(n))):
+    for i in range(3, 1+int(sqrt(n)), 2):
         if not n % i:
             return i
     return n
@@ -27,7 +27,7 @@ def smallestPrimeFactor(n):
 
 
 def main():
-    n = 600851475143
+    n = 13195
     start = time()
     x = largestPrimeFactor(n)
     end = time()
