@@ -17,17 +17,15 @@ def largestPrimeFactor(n):
 
 
 def smallestPrimeFactor(n):
-    for i in range(3, 1+int(sqrt(n)), 2):
+    for i in range(2, 1+int(sqrt(n))):
         if not n % i:
             return i
     return n
 
 # Since every number, n has a prime factorization, we can repeatedly divide n by prime
 # factors (from smallest to largest) and thus the last factor will be the largest factor
-
-
 def main():
-    n = 13195
+    n = 600851475143
     start = time()
     x = largestPrimeFactor(n)
     end = time()
