@@ -6,7 +6,7 @@
 
 # Solution: 4613732
 
-import time
+from time import time
 
 
 def fib(n):  # w/ memoization
@@ -19,9 +19,9 @@ def fib(n):  # w/ memoization
 
 
 def main():
-    start = time.time()
+    start = time()
     x = sum(filter(lambda x: x % 2 == 0, fib(4000000)))
-    end = time.time()
+    end = time()
     print("runtime: {0}s\nsolution: {1}".format(end-start, x))
 
 

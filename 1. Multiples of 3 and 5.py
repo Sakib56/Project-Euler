@@ -3,19 +3,23 @@
 
 # Solution: 233168
 
-import time
+import time as time
+
 
 def sumMultiples(multiples):
     return sum(multiples)
 
+
 def getMultiples(multipleX, multipleY, belowN):
     return [n for n in range(belowN) if not (n % multipleX and n % multipleY)]
 
+
 def main():
-    start = time.time()
+    start = time()
     x = sumMultiples(getMultiples(3, 5, 1000))
-    end = time.time()
+    end = time()
     print("runtime: {0}s\nsolution: {1}".format(end-start, x))
+
 
 if __name__ == '__main__':
     main()
