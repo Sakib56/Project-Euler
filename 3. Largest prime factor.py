@@ -3,33 +3,29 @@
 
 # Solution: 6857
 
-from math import ceil, sqrt
+from math import sqrt
 
 
-def isPrime(n):
-    if n == 2:
-        return True
-    for i in [2]+list(range(3, ceil(sqrt(n)), 2)):
+def largestPrimeFactor(n):
+    while True:
+        p = smallestPrimeFactor(n)
+        if p >= n:
+            return str(n)
+        else:
+            n = int(n/p)
+
+
+def smallestPrimeFactor(n):
+    for i in range(2, 1+int(sqrt(n))):
         if not n % i:
-            return False
-    return n >= 2
+            return i
+    return n
 
-
-def getPrimesUpto(n):
-    primes = [p for p in range(1, n) if isPrime(p)]
-    return primes
-
-
-def largestPrimeFactor(n, primes):
-    for p in reversed(primes):
-        if n % p == 0:
-            return p
-
-
+# Since every number, n has a prime factorization, we can repeatedly divide n by prime
+# factors (from smallest to largest) and thus the last factor will be the largest factor
 def main():
     n = 600851475143
-    primes = getPrimesUpto(n)
-    print(largestPrimeFactor(n, primes))
+    print(largestPrimeFactor(n))
 
 
 if __name__ == '__main__':
