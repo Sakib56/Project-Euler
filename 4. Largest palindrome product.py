@@ -31,11 +31,14 @@ def find3Palindrome():
 
 def main():
     start = time()
-    palindromic = find3Palindrome()
+    x = find3Palindrome()
     end = time()
 
-    for num1, num2, product in palindromic:
-        print("{0} * {1} = {2}".format(num1, num2, product))
+    # for num1, num2, product in palindromic:
+    #     print("{0} * {1} = {2}".format(num1, num2, product))
+
+    print("runtime: {0}s\nsolution: {1}".format(end-start, x[-1]))
+    
 
 
 if __name__ == '__main__':
