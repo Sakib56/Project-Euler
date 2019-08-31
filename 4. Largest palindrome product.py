@@ -12,8 +12,9 @@ def isPalindrome(n):
     stringNum = str(n)
     return stringNum == stringNum[::-1]
 
-# Max 3 digit num with 11 as factor is 11*floor(999/11) -> 11*90
-# Min 3 digit num with 11 as factor is 11*ceil(100/11) -> 11*10
+# Max 3 digit num has 11 as factor is 11*floor(999/11) -> 11*90
+# Min 3 digit num has 11 as factor is 11*ceil(100/11) -> 11*10
+# This was an observation that I made
 
 
 def find3Palindrome():
@@ -24,6 +25,7 @@ def find3Palindrome():
             num2 = j
             product = num1 * num2
             if isPalindrome(product):
+                # tuple (num1, num2, product) -> num1 * num2 = product
                 threeDigitPalindromic.append((num1, num2, product))
 
     return sorted(threeDigitPalindromic, key=itemgetter(2))
@@ -38,7 +40,6 @@ def main():
     #     print("{0} * {1} = {2}".format(num1, num2, product))
 
     print("runtime: {0}s\nsolution: {1}".format(end-start, x[-1]))
-    
 
 
 if __name__ == '__main__':
